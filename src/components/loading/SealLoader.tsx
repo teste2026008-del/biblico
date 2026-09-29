@@ -1,0 +1,9 @@
+export function SealLoader(){return <div aria-hidden className="relative h-32 w-32 sm:h-40 sm:w-40">
+ <svg viewBox="0 0 200 200" className="absolute inset-0 animate-seal"><defs><linearGradient id="seal-gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stopColor="oklch(0.66 0.07 70)"/><stop offset="50%" stopColor="oklch(0.9 0.13 88)"/><stop offset="100%" stopColor="oklch(0.6 0.06 62)"/></linearGradient></defs><circle cx="100" cy="100" r="92" fill="none" stroke="url(#seal-gold)" strokeWidth="1.25" strokeDasharray="2 10" opacity="0.75"/><circle cx="100" cy="100" r="78" fill="none" stroke="url(#seal-gold)" strokeWidth="2" strokeDasharray="150 430" strokeLinecap="round"/></svg>
+ <svg viewBox="0 0 200 200" className="absolute inset-0 animate-seal-reverse"><circle cx="100" cy="100" r="62" fill="none" stroke="oklch(0.82 0.13 84 / 35%)" strokeWidth="1" strokeDasharray="1 7"/></svg>
+ <div className="absolute inset-6 rounded-full animate-breathe" style={{boxShadow:"var(--shadow-halo)"}}/>
+ <div className="absolute inset-0 flex items-center justify-center" style={{perspective:"420px"}}><div className="relative h-12 w-16 sm:h-14 sm:w-20">
+  <div className="absolute inset-0 flex"><span className="h-full w-1/2 rounded-l-[3px] border border-border bg-parchment/90"/><span className="h-full w-1/2 rounded-r-[3px] border border-border bg-parchment/70"/></div><span className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-ink/40"/>
+  {[0,1,2].map(i=><span key={i} className="absolute right-0 top-0 h-full w-1/2 origin-left rounded-r-[3px] bg-parchment" style={{animation:`page-turn 2.7s cubic-bezier(0.55,0.06,0.42,0.98) ${i*0.9}s infinite`,transformStyle:"preserve-3d",backfaceVisibility:"hidden"}}/>)}
+ </div></div>
+</div>}
