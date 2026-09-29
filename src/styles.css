@@ -1,0 +1,30 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+@custom-variant dark (&:is(.dark *));
+@theme inline {
+ --radius-sm:calc(var(--radius) - 4px);--radius-md:calc(var(--radius) - 2px);--radius-lg:var(--radius);--radius-xl:calc(var(--radius) + 4px);
+ --color-background:var(--background);--color-foreground:var(--foreground);--color-card:var(--card);--color-card-foreground:var(--card-foreground);
+ --color-primary:var(--primary);--color-primary-foreground:var(--primary-foreground);--color-secondary:var(--secondary);--color-muted:var(--muted);--color-muted-foreground:var(--muted-foreground);
+ --color-border:var(--border);--color-input:var(--input);--color-ring:var(--ring);--color-gold:var(--gold);--color-gold-soft:var(--gold-soft);--color-parchment:var(--parchment);--color-ink:var(--ink);
+ --font-display:"Cormorant Garamond","Iowan Old Style",Georgia,serif;--font-sans:"Karla",ui-sans-serif,system-ui,sans-serif;
+}
+:root{
+ --radius:.5rem;--background:oklch(.19 .026 52);--foreground:oklch(.945 .021 82);--card:oklch(.235 .03 52);--card-foreground:oklch(.945 .021 82);
+ --primary:oklch(.79 .12 82);--primary-foreground:oklch(.2 .03 52);--secondary:oklch(.29 .032 55);--muted:oklch(.28 .028 55);--muted-foreground:oklch(.73 .036 78);
+ --accent:oklch(.45 .09 42);--border:oklch(.79 .12 82 / 18%);--input:oklch(.79 .12 82 / 22%);--ring:oklch(.79 .12 82 / 55%);
+ --gold:oklch(.82 .13 84);--gold-soft:oklch(.72 .08 78);--parchment:oklch(.93 .035 85);--ink:oklch(.17 .024 52);
+ --gradient-hall:radial-gradient(120% 90% at 50% 0%,oklch(.32 .05 58 / 85%) 0%,transparent 60%),radial-gradient(90% 70% at 50% 100%,oklch(.24 .04 38 / 70%) 0%,transparent 65%),linear-gradient(180deg,oklch(.2 .028 52) 0%,oklch(.155 .022 48) 100%);
+ --gradient-gold:linear-gradient(100deg,oklch(.68 .07 70) 0%,oklch(.9 .13 88) 45%,oklch(.7 .08 66) 100%);
+ --shadow-halo:0 0 120px -20px oklch(.79 .12 82 / 22%);
+}
+@layer base{*{border-color:var(--color-border)}body{margin:0;background:var(--color-background);color:var(--color-foreground);font-family:var(--font-sans);-webkit-font-smoothing:antialiased}}
+@utility text-gilded{background-image:var(--gradient-gold);background-clip:text;-webkit-background-clip:text;color:transparent}
+@utility surface-hall{background-image:var(--gradient-hall)}
+@utility grain-overlay{background-image:radial-gradient(oklch(.93 .035 85 / 14%) .5px,transparent .6px);background-size:3px 3px}
+@keyframes seal-spin{to{transform:rotate(360deg)}}@keyframes seal-spin-reverse{to{transform:rotate(-360deg)}}
+@keyframes page-turn{0%{transform:rotateY(0deg);opacity:0}8%{opacity:.9}60%{transform:rotateY(-168deg);opacity:.55}100%{transform:rotateY(-180deg);opacity:0}}
+@keyframes ember-drift{0%{transform:translate3d(0,12px,0) scale(.9);opacity:0}35%{opacity:.7}100%{transform:translate3d(6px,-34px,0) scale(1.15);opacity:0}}
+@keyframes breathe{0%,100%{opacity:.45}50%{opacity:.95}}@keyframes rise-in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}@keyframes bar-fill{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+@utility animate-seal{animation:seal-spin 9s linear infinite}@utility animate-seal-reverse{animation:seal-spin-reverse 14s linear infinite}@utility animate-breathe{animation:breathe 4.5s ease-in-out infinite}@utility animate-rise-in{animation:rise-in 1s cubic-bezier(.22,1,.36,1) both}@utility animate-bar-fill{animation:bar-fill 2.4s cubic-bezier(.65,0,.35,1) infinite}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
